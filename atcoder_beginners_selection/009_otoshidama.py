@@ -1,8 +1,6 @@
 n, y = list(map(int, input().split()))
 
-a = 0  # The num of 10000 yen
-b = 0  # The num of 5000 yen
-c = 0  # The num of 1000 yen
+a = b = c = 0
 
 yen_a = 10000
 yen_b = 5000
@@ -15,18 +13,18 @@ a = int(target / coef_a)
 if a > n or target < 0:
     a = b = c = -1
 else:
-    while(a >= 0):
-        if(coef_a * a + coef_b * b == target and n-a-b >= 0):
+    while a >= 0:
+        if coef_a * a + coef_b * b == target and n-a-b >= 0:
             c = n - a - b
             break
-        elif(coef_a * a + coef_b * b > target):
+        elif coef_a * a + coef_b * b > target:
             a -= 1
         else:
             b += 1
     if a == -1:
         b = c = -1
 
-print('{} {} {}'.format(a, b, c))
+print(a, b, c)
 
 
 # Algorithm for finding the minimum number
